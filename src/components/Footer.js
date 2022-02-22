@@ -1,5 +1,6 @@
 import React from "react";
-import { FiYoutube, FiInstagram, FiTwitter, FiFacebook } from "react-icons/fi";
+import { FiInstagram, FiGithub, FiLinkedin, FiCode } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const styles = {
@@ -12,15 +13,29 @@ const Footer = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.optionsContainer}>
-        <div className={styles.option}>About</div>
-        <div className={styles.option}>Terms</div>
-        <div className={styles.option}>Privacy</div>
+        <Link to="/about">
+          <div className={styles.option}>About</div>
+        </Link>
+        <Link to="/terms">
+          <div className={styles.option}>Terms</div>
+        </Link>
+        <Link to="/privacy">
+          <div className={styles.option}>Privacy</div>
+        </Link>
       </div>
       <div className={styles.iconsContainer}>
-        <FiFacebook className={styles.icon} />
-        <FiTwitter className={styles.icon} />
-        <FiInstagram className={styles.icon} />
-        <FiYoutube className={styles.icon} />
+        <a href="https://github.com/yash2705/tip-me-an-ether" target="blank">
+          <FiGithub className={styles.icon} />
+        </a>
+        <a href="https://www.linkedin.com/in/yash2705/" target="blank">
+          <FiLinkedin className={styles.icon} />
+        </a>
+        <a href="https://www.codechef.com/users/yash2705" target="blank">
+          <FiCode className={styles.icon} />
+        </a>
+        <a href="https://www.instagram.com/yashshah2705/" target="blank">
+          <FiInstagram className={styles.icon} />
+        </a>
       </div>
     </div>
   );

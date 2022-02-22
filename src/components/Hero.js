@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const [username, setUsername] = useState("");
@@ -31,7 +32,9 @@ const Hero = () => {
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
-        <div className={styles.button}>Claim</div>
+        <Link to="/login">
+          <div className={styles.button}>Claim</div>
+        </Link>
       </div>
     </div>
   );

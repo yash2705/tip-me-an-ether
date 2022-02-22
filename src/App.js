@@ -1,16 +1,15 @@
-import Features from "./components/Features";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
 
 const App = () => {
   return (
-    <div className="bg-gradient-to-r from-violet-900 via-indigo-700 to-cyan-600 min-h-screen  overflow-x-hidden md:overflow-x-visible">
-      <Header />
-      <Hero />
-      <Features />
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path={"/login"} element={<Login />} />
+      </Routes>
+    </Router>
   );
 };
 
