@@ -24,7 +24,7 @@ const Header = () => {
         <Link to="/faq">
           <div className={styles.button}>FAQ</div>
         </Link>
-        <Link to="/login">
+        <Link to="/connect">
           <div className={styles.button}>Log in</div>
         </Link>
       </div>

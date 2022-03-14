@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import ErrorMessage from "./ErrorMessage";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import validator from "validator";
 
 const Form = () => {
@@ -26,28 +25,29 @@ const Form = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [checked, setChecked] = useState(false);
-  const [error, setError] = useState();
 
-  const [usernameError, setUsernameError] = useState("");
-  const [emailError, setEmailError] = useState("");
+  const [usernameError, setUsernameError] = useState(
+    "Username must be atleast 4 characters long."
+  );
+  const [emailError, setEmailError] = useState("Enter a valid email address.");
 
-  useEffect(() => {
-    setTimeout(() => {
-      setError();
-    }, 4000);
-  }, [error]);
+  const navigate = useNavigate();
 
   const isValid = () => {
-    console.log(username, email);
-    username.trim.length < 4
-      ? setUsernameError("Username must be atleast 4 characters long.")
-      : setUsernameError("");
-
-    !validator.isEmail(email)
-      ? setEmailError("Enter a valid email address.")
-      : setEmailError("");
+    setUsernameError(() =>
+      username.length >= 4 ? "" : "Username must be atleast 4 characters long."
+    );
+    setEmailError(() =>
+      !validator.isEmail(email) ? "Enter a valid email address." : ""
+    );
+    return;
   };
 
+  useEffect(() => {
+    if (usernameError === "" && emailError === "" && checked) {
+      return navigate("/home");
+    }
+  }, [usernameError, emailError, checked, navigate]);
   return (
     <div className={styles.formContainer}>
       <div className={styles.form}>
@@ -111,7 +111,6 @@ const Form = () => {
           Create Account
         </div>
       </div>
-      <ErrorMessage error={error} />
     </div>
   );
 };
