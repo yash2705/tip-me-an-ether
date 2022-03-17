@@ -1,12 +1,25 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useMoralis } from "react-moralis";
+import { Link, useNavigate } from "react-router-dom";
 
 const Dropdown = () => {
+  const { logout, isAuthenticated } = useMoralis();
+  const navigate = useNavigate();
+
+  const logOut = () => {
+    logout();
+    navigate("/");
+  };
+
+  useEffect(() => {
+    if (!isAuthenticated) return navigate("/");
+  }, [isAuthenticated, navigate]);
+
   const styles = {
-    wrapper: `fixed top-16 right-8 md:right-16 lg:right-16 bg-sky-200 text-xl rounded-xl divide-y divide-sky-100 md:top-[72px] shadow-md`,
+    wrapper: `fixed top-16 right-8 md:right-16 lg:right-16 bg-violet-300 text-xl rounded-xl divide-y divide-sky-100 md:top-[72px] shadow-md`,
     topContainer: `text-black font-medium`,
-    optionTop: `hover:bg-sky-300 hover:cursor-pointer py-2 px-6 rounded-t-xl`,
-    option: `hover:bg-sky-300 py-2 px-6`,
+    optionTop: `hover:bg-violet-400 hover:cursor-pointer py-2 px-6 rounded-t-xl`,
+    option: `hover:bg-violet-400 py-2 px-6`,
     logout: `py-2 px-6 cursor-pointer text-slate-500 hover:text-slate-700 font-medium`,
   };
   return (
@@ -25,7 +38,9 @@ const Dropdown = () => {
           <div className={styles.option}>FAQ</div>
         </Link>
       </div>
-      <div className={styles.logout}>Log out</div>
+      <div className={styles.logout} onClick={logOut}>
+        Log out
+      </div>
     </div>
   );
 };
