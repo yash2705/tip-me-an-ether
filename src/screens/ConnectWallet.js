@@ -7,6 +7,10 @@ import ErrorMessage from "../components/ErrorMessage";
 import { db } from "../firebaseConfig";
 import { collection, getDocs, query, where } from "firebase/firestore";
 const ConnectWallet = () => {
+  const styles = {
+    button: `text-white bg-black hover:bg-slate-900 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 mb-2 hover:cursor-pointer`,
+  };
+
   const navigate = useNavigate();
   const { authenticate, authError, isAuthenticated, user } = useMoralis();
 
@@ -35,12 +39,9 @@ const ConnectWallet = () => {
   }, [isAuthenticated, navigate, user]);
 
   return (
-    <div className="bg-gradient-to-r from-violet-900 via-indigo-700 to-cyan-600 min-h-screen flex flex-col overflow-x-hidden md:overflow-x-visible justify-between items-center">
+    <div className="bg-slate-100 min-h-screen flex flex-col overflow-x-hidden md:overflow-x-visible justify-between items-center">
       <LoginHeader />
-      <div
-        className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 mr-2 mb-2 hover:cursor-pointer"
-        onClick={authenticate}
-      >
+      <div className={styles.button} onClick={authenticate}>
         <svg
           className="mr-2 -ml-1 w-6 h-5"
           viewBox="0 0 2405 2501"
@@ -487,3 +488,5 @@ const ConnectWallet = () => {
 };
 
 export default ConnectWallet;
+
+// bg-gradient-to-r from-violet-900 via-indigo-700 to-cyan-600

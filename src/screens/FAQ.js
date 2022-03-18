@@ -5,6 +5,7 @@ import LoginHeader from "../components/LoginHeader";
 import Footer from "../components/Footer";
 import BottomNavigationBar from "../components/BottomNavigationBar";
 import { useMoralis } from "react-moralis";
+import Sidebar from "../components/Sidebar";
 
 const FAQ = () => {
   const faqs = [
@@ -53,22 +54,33 @@ const FAQ = () => {
 
   const { isAuthenticated } = useMoralis();
   return (
-    <div className="bg-gradient-to-r from-violet-900 via-indigo-700 to-cyan-600 min-h-screen overflow-x-hidden text-white flex flex-col">
+    <div className="bg-slate-100 min-h-screen overflow-x-hidden flex flex-col overflow-y-hidden">
       {isAuthenticated ? <HomeHeader /> : <LoginHeader />}
       <div
         className={`${
-          isAuthenticated ? "pt-20 pb-20 md:pt-24" : "pt-0 pb-0"
-        } flex-1 justify-center items-center max-w-5xl mx-auto`}
+          isAuthenticated
+            ? "pt-[84px] pb-[84px] md:pt-[72px] md:pb-[36px]"
+            : "pt-0 pb-0"
+        } flex-1 flex items-center justify-center md:max-w-4xl mx-auto lg:max-w-6xl`}
       >
-        {faqs.map((faq) => {
-          return (
-            <Accordian
-              key={faq.id}
-              question={faq.question}
-              answer={faq.answer}
-            />
-          );
-        })}
+        {isAuthenticated ? <Sidebar /> : null}
+        <div
+          className={`md:w-2/3 lg:w-3xl flex flex-col flex-1 ${
+            isAuthenticated
+              ? "overflow-y-scroll overscroll-contain md:h-[600px] scrollbar-hide"
+              : ""
+          }`}
+        >
+          {faqs.map((faq) => {
+            return (
+              <Accordian
+                key={faq.id}
+                question={faq.question}
+                answer={faq.answer}
+              />
+            );
+          })}
+        </div>
       </div>
       {isAuthenticated ? <BottomNavigationBar /> : <Footer />}
     </div>
@@ -76,3 +88,5 @@ const FAQ = () => {
 };
 
 export default FAQ;
+
+// bg-gradient-to-r from-violet-900 via-indigo-700 to-cyan-600

@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   const styles = {
-    wrapper: `flex justify-between rounded-full lg:w-3/4 lg:mx-auto md:sticky md:top-4 md:bg-violet-600 md:mx-4 md:drop-shadow-lg text-white p-4 md:p-0 z-40 items-center`,
+    wrapper: `flex justify-between rounded-full lg:w-3/4 lg:mx-auto  md:bg-black md:mx-4 md:drop-shadow-lg md:text-white text-black p-4 md:p-0 z-40 items-center`,
     rightSection: `flex items-center`,
-    button: `rounded-full p-2 mt-2 mb-2 ml-2 hover:bg-purple-600 hover:cursor-pointer font-medium md:m-3 hover:md:bg-purple-500`,
-    logo: `h-10 p-1 ml-2 md:h-15 cursor-pointer`,
+    button: `rounded-full p-2 mt-2 mb-2 ml-2 hover:bg-slate-300 hover:cursor-pointer font-medium md:m-3 hover:md:bg-slate-700`,
+    logo: `h-12 p-1 ml-2 md:h-14 cursor-pointer`,
   };
 
   return (
@@ -14,8 +14,8 @@ const Header = () => {
       <div>
         <Link to="/">
           <img
-            src="https://cryptologos.cc/logos/ethereum-eth-logo.png"
-            alt="Ether"
+            src="https://ethereum.org/static/4d030a46f561e5c754cabfc1a97528ff/843b6/impact_transparent.png"
+            alt="Tip Me An Ether"
             className={styles.logo}
           />
         </Link>

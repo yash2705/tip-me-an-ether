@@ -6,7 +6,7 @@ import Hero from "../components/Hero";
 
 const Landing = () => {
   return (
-    <div className="bg-gradient-to-r from-violet-900 via-indigo-700 to-cyan-600 min-h-screen  overflow-x-hidden md:overflow-x-visible">
+    <div className="min-h-screen overflow-x-hidden md:overflow-x-visible bg-slate-100 md:pt-4">
       <Header />
       <Hero />
       <Features />
@@ -16,3 +16,5 @@ const Landing = () => {
 };
 
 export default Landing;
+
+// bg-gradient-to-r from-violet-900 via-indigo-700 to-cyan-600

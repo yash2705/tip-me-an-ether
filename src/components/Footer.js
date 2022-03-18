@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   const styles = {
     wrapper: `md:flex md:items-center mx-auto w-2/3 md:w-3/5 `,
-    icon: `text-cyan-300 w-12 h-6 hover:scale-125 transition duration-500 ease-in-out hover:cursor-pointer`,
+    icon: `text-slate-500 hover:text-black w-12 h-6 hover:scale-125 transition duration-500 ease-in-out hover:cursor-pointer`,
     optionsContainer: `w-2/3 justify-around flex mx-auto md:w-3/5 md:mx-0 md:justify-start md:space-x-6`,
-    option: `hover:cursor-pointer text-lg font-medium text-cyan-300 hover:text-slate-300`,
+    option: `hover:cursor-pointer text-lg font-medium text-slate-500 hover:text-black`,
     iconsContainer: `flex p-4 w-full justify-center md:w-2/5 md:mx-0 md:justify-end`,
   };
   return (

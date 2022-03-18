@@ -5,9 +5,9 @@ import Dropdown from "./Dropdown";
 
 const HomeHeader = () => {
   const styles = {
-    wrapper: `flex justify-between w-screen text-white px-4 py-2 z-40 items-center md:px-12 shadow-md md:shadow-none  bg-violet-600 fixed left-0 right-0 top-0`,
-    logo: `h-10 p-1 ml-2 md:h-15 cursor-pointer md:h-12`,
-    menuButton: `rounded-full p-1 mr-3 mt-2 mb-2 hover:cursor-pointer font-medium md:m-3 md:text-lg shadow-lg bg-violet-300 text-black flex items-center space-x-2 md:space-x-4`,
+    wrapper: `flex justify-between w-screen px-4 py-2 z-40 items-center md:px-12 shadow-sm bg-white fixed left-0 right-0 top-0`,
+    logo: `h-14 p-1 ml-2 md:h-16 cursor-pointer`,
+    menuButton: `rounded-full p-2 mr-3 mt-2 mb-2 hover:cursor-pointer font-bond text-xl shadow-sm bg-slate-200 text-black flex items-center space-x-2`,
     avatar: `rounded-full h-8`,
   };
 
@@ -16,8 +16,8 @@ const HomeHeader = () => {
     <div className={styles.wrapper}>
       <Link to="/home">
         <img
-          src="https://cryptologos.cc/logos/ethereum-eth-logo.png"
-          alt="Ether"
+          src="https://ethereum.org/static/4d030a46f561e5c754cabfc1a97528ff/843b6/impact_transparent.png"
+          alt="Tip Me An Ether"
           className={styles.logo}
         />
       </Link>

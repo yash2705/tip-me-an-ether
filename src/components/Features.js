@@ -44,7 +44,7 @@ const Features = () => {
   ];
 
   const styles = {
-    largeFont: `text-3xl text-white font-medium text-center mt-6`,
+    largeFont: `text-3xl text-black font-medium text-center mt-6`,
     wrapper: `items-center space-y-4`,
     cardContainer: `max-w-6xl p-4 lg:mx-auto lg:my-auto md:grid md:grid-cols-3 space-y-4 ml-8 mr-8 md:gap-4 lg:gap-8 items-center min-h-max md:space-y-0`,
   };
