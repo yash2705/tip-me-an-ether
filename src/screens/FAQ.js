@@ -57,17 +57,15 @@ const FAQ = () => {
     <div className="bg-slate-100 min-h-screen overflow-x-hidden flex flex-col overflow-y-hidden">
       {isAuthenticated ? <HomeHeader /> : <LoginHeader />}
       <div
-        className={`${
-          isAuthenticated
-            ? "pt-[84px] pb-[84px] md:pt-[72px] md:pb-[36px]"
-            : "pt-0 pb-0"
-        } flex-1 flex items-center justify-center md:max-w-4xl mx-auto lg:max-w-6xl`}
+        className={` ${
+          isAuthenticated ? "pt-20" : "pt-4"
+        } flex w-full md:max-w-4xl mx-auto flex-1 lg:max-w-6xl`}
       >
-        {isAuthenticated ? <Sidebar /> : null}
+        {isAuthenticated ? <Sidebar selectedOption="FAQ" /> : null}
         <div
-          className={`md:w-2/3 lg:w-3xl flex flex-col flex-1 ${
+          className={`md:w-2/3 lg:w-4/5 xl:w-7/12 flex flex-col flex-1 ${
             isAuthenticated
-              ? "overflow-y-scroll overscroll-contain md:h-[600px] scrollbar-hide"
+              ? "overflow-y-scroll overscroll-contain md:h-[600px] scrollbar-hide pb-16 md:pb-0"
               : ""
           }`}
         >
@@ -88,5 +86,3 @@ const FAQ = () => {
 };
 
 export default FAQ;
-
-// bg-gradient-to-r from-violet-900 via-indigo-700 to-cyan-600

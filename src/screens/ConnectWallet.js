@@ -6,6 +6,7 @@ import LoginHeader from "../components/LoginHeader";
 import ErrorMessage from "../components/ErrorMessage";
 import { db } from "../firebaseConfig";
 import { collection, getDocs, query, where } from "firebase/firestore";
+
 const ConnectWallet = () => {
   const styles = {
     button: `text-white bg-black hover:bg-slate-900 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 mb-2 hover:cursor-pointer`,
@@ -16,21 +17,16 @@ const ConnectWallet = () => {
 
   useEffect(() => {
     const findUser = async () => {
-      console.log(user.get("ethAddress"));
+      const walletAddress = user.get("ethAddress").toString();
       const q = query(
         collection(db, "users"),
-        where(
-          "walletAddress",
-          "==",
-          "0x31a32a2aaaffb4a69ef7196b91644422e17c567e"
-        )
+        where("walletAddress", "==", walletAddress)
       );
+
       const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        console.log(doc.id, "=>", doc.data());
-      });
-      // if (existigUser) return navigate("/home");
-      // return navigate("/signup");
+      if (querySnapshot.size === 1) return navigate("/home");
+
+      return navigate("/signup");
     };
 
     if (isAuthenticated) {
@@ -488,5 +484,3 @@ const ConnectWallet = () => {
 };
 
 export default ConnectWallet;
-
-// bg-gradient-to-r from-violet-900 via-indigo-700 to-cyan-600

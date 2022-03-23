@@ -14,5 +14,3 @@ const SignUp = () => {
 };
 
 export default SignUp;
-
-// bg-gradient-to-r from-violet-900 via-indigo-700 to-cyan-600

@@ -16,5 +16,3 @@ const Landing = () => {
 };
 
 export default Landing;
-
-// bg-gradient-to-r from-violet-900 via-indigo-700 to-cyan-600

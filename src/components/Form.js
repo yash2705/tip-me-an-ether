@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { addDoc, collection, query, where, getDocs } from "firebase/firestore";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useMoralis } from "react-moralis";
 import validator from "validator";
+import { db } from "../firebaseConfig";
 
 const Form = () => {
   const styles = {
@@ -26,15 +29,57 @@ const Form = () => {
   const [emailError, setEmailError] = useState("");
 
   const navigate = useNavigate();
+  const { user, isAuthenticated } = useMoralis();
 
-  const isValid = () => {
+  const signup = async () => {
+    await isValid();
+    await register();
+  };
+
+  const isValid = async () => {
     setUsernameError(() =>
       username.length >= 4 ? "" : "Username must be atleast 4 characters long."
     );
     setEmailError(() =>
       !validator.isEmail(email) ? "Enter a valid email address." : ""
     );
-    return;
+  };
+
+  const register = async () => {
+    if (
+      emailError === "" &&
+      usernameError === "" &&
+      username !== "" &&
+      email !== "" &&
+      checked &&
+      isAuthenticated
+    ) {
+      const walletAddress = user.get("ethAddress").toString();
+      let q = query(
+        collection(db, "users"),
+        where("emailAddress", "==", email)
+      );
+      let querySnapshot = await getDocs(q);
+      if (querySnapshot.size !== 0)
+        setEmailError("Email address already in use.");
+      console.log(querySnapshot.size);
+      q = query(collection(db, "users"), where("username", "==", username));
+      querySnapshot = await getDocs(q);
+      if (querySnapshot.size !== 0)
+        setUsernameError("Username already in use.");
+      console.log(querySnapshot.size);
+
+      if (usernameError !== "" || emailError !== "") return;
+
+      const usersCollectionRef = collection(db, "users");
+      const payload = {
+        username,
+        emailAddress: email,
+        walletAddress,
+      };
+      await addDoc(usersCollectionRef, payload);
+      navigate("/home");
+    }
   };
 
   return (
@@ -96,7 +141,7 @@ const Form = () => {
         >
           Accept the terms and privacy policy
         </div>
-        <div className={styles.button} onClick={isValid}>
+        <div className={styles.button} onClick={signup}>
           Create Account
         </div>
       </div>

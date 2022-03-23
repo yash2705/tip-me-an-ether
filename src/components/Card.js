@@ -20,5 +20,3 @@ const Card = ({ image, title, description }) => {
 };
 
 export default Card;
-
-// bg-gradient-to-r from-violet-900 md:from-transparent via-indigo-700 to-cyan-600 md:to-transparent
