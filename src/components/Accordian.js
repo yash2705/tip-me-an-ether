@@ -7,11 +7,6 @@ import {
 const Accordian = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const styles = {
-    wrapper: `bg-white text-black w-11/12 mx-auto mt-3 md:mt-4 rounded-lg shadow-sm p-4 text-lg md:text-xl hover:cursor-pointer`,
-    question: `font-bold flex justify-between items-center`,
-  };
-
   return (
     <div className={styles.wrapper} onClick={() => setIsOpen(!isOpen)}>
       <div className={styles.question}>
@@ -27,6 +22,11 @@ const Accordian = ({ question, answer }) => {
       </div>
     </div>
   );
+};
+
+const styles = {
+  wrapper: `bg-white text-black w-11/12 mx-auto mt-3 md:mt-4 rounded-lg shadow-sm p-4 text-lg md:text-xl hover:cursor-pointer`,
+  question: `font-bold flex justify-between items-center`,
 };
 
 export default Accordian;

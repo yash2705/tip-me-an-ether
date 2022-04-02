@@ -1,12 +1,6 @@
 import React from "react";
 
 const CreatorCard = () => {
-  const styles = {
-    container: `flex space-x-3 p-2 items-center my-2 hover:bg-white rounded-xl hover:cursor-pointer hover:text-black hover:underline text-slate-500`,
-    avatar: `h-10 w-10 rounded-full`,
-    username: `font-semibold text-lg`,
-  };
-
   return (
     <div className={styles.container}>
       <div>
@@ -19,6 +13,12 @@ const CreatorCard = () => {
       <div className={styles.username}>username</div>
     </div>
   );
+};
+
+const styles = {
+  container: `flex space-x-3 p-2 items-center my-2 hover:bg-white rounded-xl hover:cursor-pointer hover:text-black hover:underline text-slate-500`,
+  avatar: `h-10 w-10 rounded-full`,
+  username: `font-semibold text-lg`,
 };
 
 export default CreatorCard;

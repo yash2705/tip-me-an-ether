@@ -4,26 +4,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { useMoralis } from "react-moralis";
 import validator from "validator";
 import { db } from "../firebaseConfig";
+import Spinner from "./Spinner";
 
 const Form = () => {
-  const styles = {
-    wrapper: `flex justify-between w-screen px-4 py-2 z-40 items-center md:px-12 shadow-md md:shadow-none`,
-    input: `text-black bg-transparent border border-2 outline-none rounded-xl p-2 w-full`,
-    form: `text-xl mx-auto md:w-3/5`,
-    formContainer: `flex flex-1 mx-auto items-center align-items-center md:w-4/5 max-w-screen-md`,
-    button: `rounded-full p-2 mt-4 hover:cursor-pointer font-medium md:m-4 text-center bg-black text-white`,
-    link: `underline underline-offset-4 hover:cursor-pointer font-medium text-md text-black decoration-slate-400 hover:decoration-black`,
-    inputContainer: `text-black flex justify-items-center items-center border-slate-400 hover:border-white`,
-    checkBox: `form-check-input h-4 w-4 border border-black rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer`,
-    title: `font-bold text-2xl mb-6`,
-    validationError: `text-sm font-medium text-red-500 h-6`,
-    errorBorder: `border-red-500 hover:border-red-700`,
-    terms: `text-slate-700`,
-  };
-
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [checked, setChecked] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const [usernameError, setUsernameError] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -32,8 +19,10 @@ const Form = () => {
   const { user, isAuthenticated } = useMoralis();
 
   const signup = async () => {
+    setLoading(true);
     await isValid();
     await register();
+    setLoading(false);
   };
 
   const isValid = async () => {
@@ -59,6 +48,7 @@ const Form = () => {
         collection(db, "users"),
         where("emailAddress", "==", email)
       );
+
       let querySnapshot = await getDocs(q);
       if (querySnapshot.size !== 0)
         setEmailError("Email address already in use.");
@@ -141,12 +131,31 @@ const Form = () => {
         >
           Accept the terms and privacy policy
         </div>
-        <div className={styles.button} onClick={signup}>
-          Create Account
-        </div>
+        {loading ? (
+          <Spinner />
+        ) : (
+          <div className={styles.button} onClick={signup} disabled={loading}>
+            Create Account
+          </div>
+        )}
       </div>
     </div>
   );
+};
+
+const styles = {
+  wrapper: `flex justify-between w-screen px-4 py-2 z-40 items-center md:px-12 shadow-md md:shadow-none`,
+  input: `text-black bg-transparent border border-2 outline-none rounded-xl p-2 w-full`,
+  form: `text-xl mx-auto md:w-3/5`,
+  formContainer: `flex flex-1 mx-auto items-center align-items-center md:w-4/5 max-w-screen-md`,
+  button: `rounded-full p-2 mt-4 hover:cursor-pointer font-medium md:m-4 text-center bg-black text-white`,
+  link: `underline underline-offset-4 hover:cursor-pointer font-medium text-md text-black decoration-slate-400 hover:decoration-black`,
+  inputContainer: `text-black flex justify-items-center items-center border-slate-400 hover:border-white`,
+  checkBox: `form-check-input h-4 w-4 border border-black rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer`,
+  title: `font-bold text-2xl mb-6`,
+  validationError: `text-sm font-medium text-red-500 h-6`,
+  errorBorder: `border-red-500 hover:border-red-700`,
+  terms: `text-slate-700`,
 };
 
 export default Form;

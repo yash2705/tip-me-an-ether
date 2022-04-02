@@ -2,13 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  const styles = {
-    wrapper: `flex justify-between rounded-full lg:w-3/4 lg:mx-auto  md:bg-black md:mx-4 md:drop-shadow-lg md:text-white text-black p-4 md:p-0 z-40 items-center`,
-    rightSection: `flex items-center`,
-    button: `rounded-full p-2 mt-2 mb-2 ml-2 hover:bg-slate-300 hover:cursor-pointer font-medium md:m-3 hover:md:bg-slate-700`,
-    logo: `h-12 p-1 ml-2 md:h-14 cursor-pointer`,
-  };
-
   return (
     <div className={styles.wrapper}>
       <div>
@@ -30,6 +23,13 @@ const Header = () => {
       </div>
     </div>
   );
+};
+
+const styles = {
+  wrapper: `flex justify-between rounded-full lg:w-3/4 lg:mx-auto  md:bg-black md:mx-4 md:drop-shadow-lg md:text-white text-black p-4 md:p-0 z-40 items-center`,
+  rightSection: `flex items-center`,
+  button: `rounded-full p-2 mt-2 mb-2 ml-2 hover:bg-slate-300 hover:cursor-pointer font-medium md:m-3 hover:md:bg-slate-700`,
+  logo: `h-12 p-1 ml-2 md:h-14 cursor-pointer`,
 };
 
 export default Header;

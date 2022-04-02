@@ -10,6 +10,10 @@ const Dropdown = () => {
     if (!isAuthenticated) return navigate("/");
   }, [isAuthenticated, navigate]);
 
+  const logOut = () => {
+    logout();
+    return navigate("/");
+  };
   const styles = {
     wrapper: `fixed right-8 md:right-16 lg:right-16 bg-white text-xl rounded-xl divide-y divide-sky-100 top-[86px] shadow-md`,
     topContainer: `text-black font-medium`,
@@ -33,7 +37,7 @@ const Dropdown = () => {
           <div className={styles.option}>FAQ</div>
         </Link>
       </div>
-      <div className={styles.logout} onClick={logout}>
+      <div className={styles.logout} onClick={logOut}>
         Log out
       </div>
     </div>

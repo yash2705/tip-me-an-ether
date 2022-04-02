@@ -7,20 +7,6 @@ import { FaQuestion } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Sidebar = ({ selectedOption }) => {
-  const styles = {
-    wrapper: `hidden md:w-1/3 p-4 space-y-3 md:flex md:flex-col my-auto lg:w-3/12`,
-    avatarContainer: `flex items-center justify-center`,
-    avatar: `h-16 w-16 rounded-full`,
-    username: `text-center text-lg font-bold`,
-    postExploreContainer: `flex p-4 space-x-2`,
-    postButton: `w-1/2 bg-yellow-300 rounded-full py-1 lg:p-2 flex items-center justify-center hover:cursor-pointer hover:font-semibold space-x-1 text-lg`,
-    exploreButton: `w-1/2 bg-slate-200 text-center rounded-full py-1 flex items-center justify-center hover:cursor-pointer hover:font-semibold space-x-1 text-lg lg:px-2`,
-    container: `space-y-1 px-4`,
-    text: `text-xs text-black font-medium`,
-    options: `py-1 hover:font-semibold hover:cursor-pointer text-slate-600 hover:text-black flex items-center space-x-2 text-lg px-2`,
-    selectedOption: `py-1 text-black flex items-center space-x-2 text-lg hover:cursor-pointer font-semibold bg-slate-200 rounded-lg px-2`,
-  };
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.avatarContainer}>
@@ -115,6 +101,20 @@ const Sidebar = ({ selectedOption }) => {
       </div>
     </div>
   );
+};
+
+const styles = {
+  wrapper: `hidden md:w-1/3 p-4 space-y-3 md:flex md:flex-col my-auto lg:w-3/12`,
+  avatarContainer: `flex items-center justify-center`,
+  avatar: `h-16 w-16 rounded-full`,
+  username: `text-center text-lg font-bold`,
+  postExploreContainer: `flex p-4 space-x-2`,
+  postButton: `w-1/2 bg-yellow-300 rounded-full py-1 lg:p-2 flex items-center justify-center hover:cursor-pointer hover:font-semibold space-x-1 text-lg`,
+  exploreButton: `w-1/2 bg-slate-200 text-center rounded-full py-1 flex items-center justify-center hover:cursor-pointer hover:font-semibold space-x-1 text-lg lg:px-2`,
+  container: `space-y-1 px-4`,
+  text: `text-xs text-black font-medium`,
+  options: `py-1 hover:font-semibold hover:cursor-pointer text-slate-600 hover:text-black flex items-center space-x-2 text-lg px-2`,
+  selectedOption: `py-1 text-black flex items-center space-x-2 text-lg hover:cursor-pointer font-semibold bg-slate-200 rounded-lg px-2`,
 };
 
 export default Sidebar;

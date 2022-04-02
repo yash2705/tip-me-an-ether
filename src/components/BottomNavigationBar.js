@@ -19,7 +19,7 @@ const BottomNavigationBar = () => {
         <div className={styles.optionTitle}>Home</div>
       </div>
       <div className={styles.optionContainer}>
-        <Link to="/create">
+        <Link to="/posts/new">
           <IoCreateOutline className={styles.optionLogo} />
         </Link>
         <div className={styles.optionTitle}>Create</div>
