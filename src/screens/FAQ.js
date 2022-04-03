@@ -65,7 +65,7 @@ const FAQ = () => {
         <div
           className={`md:w-2/3 lg:w-4/5 xl:w-7/12 flex flex-col flex-1 ${
             isAuthenticated
-              ? "overflow-y-scroll overscroll-contain md:h-[600px] scrollbar-hide pb-16 md:pb-0"
+              ? "overflow-y-scroll overscroll-contain md:h-[600px] scrollbar-hide pb-20 md:pb-0"
               : ""
           }`}
         >

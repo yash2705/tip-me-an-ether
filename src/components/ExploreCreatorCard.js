@@ -4,7 +4,7 @@ import UserCard from "./UserCard";
 
 const ExploreCreatorCard = () => {
   return (
-    <div className="w-full md:w-2/3 lg:w-4/5 xl:w-7/12 overflow-y-scroll h-[630px] scrollbar-hide pb-16 md:pb-0">
+    <div className="w-full md:w-2/3 lg:w-4/5 xl:w-7/12 overflow-y-scroll md:h-[630px] scrollbar-hide pb-16 md:pb-0">
       <div className="text-black font-bold text-3xl p-4 flex items-center w-full lg:text-4xl">
         0% Comissions On All Donations!
       </div>
@@ -13,7 +13,7 @@ const ExploreCreatorCard = () => {
         <div className="font-bold text-slate-600 text-xl pt-4 pl-4">
           Featured Creators
         </div>
-        <div className="flex p-4 w-full overflow-x-auto">
+        <div className="flex p-4 w-full overflow-x-auto scrollbar-hide">
           <UserCard />
           <UserCard />
           <UserCard />
@@ -24,7 +24,7 @@ const ExploreCreatorCard = () => {
         <div className="font-bold text-slate-600 text-xl pt-4 pl-4">
           Featured Creators
         </div>
-        <div className="flex p-4 overflow-x-auto">
+        <div className="flex p-4 overflow-x-auto scrollbar-hide">
           <UserCard />
           <UserCard />
           <UserCard />

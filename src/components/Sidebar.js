@@ -20,7 +20,7 @@ const Sidebar = ({ selectedOption }) => {
       <div className={styles.postExploreContainer}>
         <div className={styles.postButton}>
           <Link
-            to="/posts/new"
+            to="/create"
             className="flex justify-center items-center space-x-2"
           >
             <IoCreateOutline />
@@ -61,7 +61,7 @@ const Sidebar = ({ selectedOption }) => {
             <span>My Posts</span>
           </div>
         </Link>
-        <Link to="/posts/new">
+        <Link to="/create">
           <div
             className={`${
               selectedOption === "CREATE"

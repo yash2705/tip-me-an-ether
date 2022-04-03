@@ -11,13 +11,14 @@ import ExploreCreatorCard from "../components/ExploreCreatorCard";
 import CreatorCard from "../components/CreatorCard";
 import TipCard from "../components/TipCard";
 import { toHaveDisplayValue } from "@testing-library/jest-dom/dist/matchers";
+import BottomNavigationBar from "../components/BottomNavigationBar";
 
 const CreatorProfile = () => {
   const { username } = useParams();
   const [exists, setExists] = useState(false);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({});
-  const [tab, setTab] = useState("POSTS");
+  const [tab, setTab] = useState("SUPPORTERS");
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -79,7 +80,7 @@ const CreatorProfile = () => {
                 POSTS
               </span>
             </div>
-            <div className="w-full px-8 pb-8">
+            <div className="w-full px-8 md:pb-8 pb-20">
               {tab === "POSTS" && (
                 <>
                   <Post />
@@ -105,6 +106,7 @@ const CreatorProfile = () => {
           </div>
         </div>
       )}
+      <BottomNavigationBar />
     </div>
   );
 };

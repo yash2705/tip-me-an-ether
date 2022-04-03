@@ -90,8 +90,8 @@ const PaymentCard = ({ username, walletAddress }) => {
             </div>
           </div>
           <div>
-            <input
-              className="w-full h-[120px] p-2 rounded-lg bg-slate-200 focus:border-none focus:outline-black text-sm"
+            <textarea
+              className="w-full h-[120px] p-2 rounded-lg bg-slate-200 focus:border-slate-400 border-slate-200 border text-sm resize-none focus:outline-none"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Say something nice...(optional)"

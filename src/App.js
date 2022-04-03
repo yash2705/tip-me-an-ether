@@ -8,6 +8,7 @@ import SignUp from "./screens/SignUp";
 import Explore from "./screens/Explore";
 import RestrictedRoute from "./components/RestrictedRoute";
 import Dashboard from "./screens/Dashboard";
+import Create from "./screens/Create";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/create" element={<Create />} />
         <Route path="/:username" element={<CreatorProfile />} />
         {/* </Route> */}
       </Routes>
